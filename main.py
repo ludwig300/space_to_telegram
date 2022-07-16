@@ -1,18 +1,11 @@
 import requests
 from pathlib import Path
-import urllib.parse
 import os
 import datetime
 from dotenv import load_dotenv
 import argparse
-
-
-def download_image(url, path):
-    response = requests.get(url)
-    response.raise_for_status()
-    with open(path, 'wb') as file:
-        file.write(response.content)
-
+from download_image import download_image
+from extension import get_extension
 
 def fetch_spacex_last_launch(id):
     url_api_spacex = f'https://api.spacexdata.com/v5/launches/{id}'
@@ -22,15 +15,6 @@ def fetch_spacex_last_launch(id):
         path = f'image/spacex{links_number}{get_extension(url)}'
         download_image(url, path)
         
-
-
-def get_extension(urlstring):
-    parsed_url = urllib.parse.urlsplit(urlstring, scheme='', allow_fragments=True)
-    unquoted_filename = urllib.parse.unquote(parsed_url[2], encoding='utf-8', errors='replace')
-    splited_filename = os.path.split(unquoted_filename)
-    extension = os.path.splitext(splited_filename[1])
-    return extension[1]
-
 
 def get_nasa_images(nasa_key, count_images):
     payload = {
