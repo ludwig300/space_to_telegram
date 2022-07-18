@@ -8,6 +8,7 @@ from download_image import download_image
 
 
 def get_nasa_images(nasa_key, count_images):
+    Path("image").mkdir(parents=True, exist_ok=True)
     payload = {
         'api_key': f'{nasa_key}',
         'count': count_images
@@ -34,7 +35,6 @@ def main():
     parser = createParser()
     namespace = parser.parse_args()
     nasa_api_key = os.environ['NASA_API']
-    Path("image").mkdir(parents=True, exist_ok=True)
     get_nasa_images(nasa_api_key, namespace.count)
 
 
