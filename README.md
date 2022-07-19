@@ -69,9 +69,16 @@ $ python get_epic.py
 ```
 This script download 5 EPIC. 
 
-#### Publication image to telegram:
+#### Posting image to telegram:
 ```
-$ python publication_image.py <CHAT_ID> -t <TIMER> 
+$ python posting_image.py <CHAT_ID> -f <FILE>
+```
+- Positional argument `<CHAT_ID>` - it's ID Telegram chanal or chat, look like this `@testchanal0`
+- `<FILE>` - Specify the path to the file. Default publication random file from "./image"
+
+#### Auto posting images to telegram:
+```
+$ python posting_images_auto.py <CHAT_ID> -t <TIMER> 
 ```
 Publication image from dir `'./image'` 
 
