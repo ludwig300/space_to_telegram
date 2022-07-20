@@ -1,10 +1,13 @@
 import os
-import urllib
+import urllib.parse
 
 
 def get_extension(urlstring):
     parsed_url = urllib.parse.urlsplit(urlstring, scheme='', allow_fragments=True)
-    unquoted_filename = urllib.parse.unquote(parsed_url[2], encoding='utf-8', errors='replace')
+    scheme, netloc, path_file, *others = parsed_url
+    unquoted_filename = urllib.parse.unquote(path_file, encoding='utf-8', errors='replace')
     splited_filename = os.path.split(unquoted_filename)
-    extension = os.path.splitext(splited_filename[1])
-    return extension[1]
+    path, file = splited_filename
+    split_file = os.path.splitext(file)
+    filename, extension, = split_file
+    return extension
