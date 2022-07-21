@@ -16,8 +16,8 @@ def fetch_spacex_last_launch(id):
 
 
 def createParser ():
-    parser = argparse.ArgumentParser()
-    parser.add_argument ('-i', '--id', default='latest', help='"id" from https://api.spacexdata.com/v5/launches')
+    parser = argparse.ArgumentParser(description='Downloader SpaceX launch')
+    parser.add_argument ('-i', '--id', default='latest', help='"id" from https://api.spacexdata.com/v5/launches. Default download last launch')
     return parser
 
 
