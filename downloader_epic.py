@@ -14,10 +14,11 @@ def get_epic_image(nasa_api_key, count_images):
     url_api_epic = 'https://api.nasa.gov/EPIC/api/natural'
     response = requests.get(url_api_epic, params=payload)
     response.raise_for_status()
+    response_json = response.json()
     for number_epic in range(count_images):
-        date = datetime.datetime.fromisoformat(response.json()[number_epic]['date'])
+        date = datetime.datetime.fromisoformat(response_json[number_epic]['date'])
         formatted_date = date.strftime("%Y/%m/%d")
-        image_name = response.json()[number_epic]['image']
+        image_name = response_json[number_epic]['image']
         url_template = f'https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/{image_name}.png'
         response_new = requests.get(url_template, params=payload)
         path = f'image/{image_name}.png'
