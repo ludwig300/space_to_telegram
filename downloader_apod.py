@@ -21,8 +21,6 @@ def get_nasa_images(nasa_key, count_images):
             urlstring = apod['url']
             path = f'image/nasa_apod_{apod_number}{get_extension(urlstring)}'
             download_image(urlstring, path)
-        else:
-            continue
 
 
 def createParser ():
