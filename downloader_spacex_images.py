@@ -9,6 +9,7 @@ from extension import get_extension
 def fetch_spacex_last_launch(id):
     url_api_spacex = f'https://api.spacexdata.com/v5/launches/{id}'
     response = requests.get(url_api_spacex)
+    response.raise_for_status()
     links_pics = response.json()['links']['flickr']['original']
     for links_number, url in enumerate(links_pics):
         path = f'image/spacex{links_number}{get_extension(url)}'
