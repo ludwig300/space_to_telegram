@@ -25,8 +25,8 @@ def get_nasa_images(nasa_key, count_images):
 
 
 def createParser ():
-    parser = argparse.ArgumentParser()
-    parser.add_argument ('-c', '--count', default=1, type=int, help='Count images from NASA to download')
+    parser = argparse.ArgumentParser(description='Downloader APOD images from NASA')
+    parser.add_argument ('-c', '--count', default=1, type=int, help='Count images from NASA to download. Default download 1 image.')
     return parser
 
 
