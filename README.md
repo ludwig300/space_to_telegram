@@ -38,22 +38,22 @@ pip install -r requirements.txt
 
 #### Download images from API SpaceX: 
 ```
-$ python fetch_spacex_images.py -i <id>
+$ python downloader_spacex_images.py -i <id>
 ```
 You can look image `<id>` [here](https://api.spacexdata.com/v5/launches).
 This is an optional argument, default it the photo from the last rocket launch will be downloaded.
 	
 #### Download images from APOD NASA:
 ```
-$ python get_apod_nasa_images.py -c <COUNT>
+$ python downloader_apod.py -c <COUNT>
 ```
 Enter the `<COUNT>` of images to download (default 1).
 
 #### Download EPIC from NASA:
 ```
-$ python get_epic.py
+$ python dowloader_epic.py -c <COUNT>
 ```
-This script download 5 EPIC. 
+Enter the `<COUNT>` of images to download (default 1).
 
 #### Posting image to telegram:
 ```
