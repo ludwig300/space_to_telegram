@@ -20,9 +20,9 @@ def get_epic_image(nasa_api_key, count_images):
         formatted_date = date.strftime("%Y/%m/%d")
         image_name = response_json[number_epic]['image']
         url_template = f'https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/{image_name}.png'
-        response_new = requests.get(url_template, params=payload)
+        formatted_response = requests.get(url_template, params=payload)
         path = f'image/{image_name}.png'
-        download_image(response_new.url, path)
+        download_image(formatted_response.url, path)
 
 
 def createParser ():
