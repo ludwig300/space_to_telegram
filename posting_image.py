@@ -12,7 +12,7 @@ def public_image(chat_id, path):
 
 
 def createParser (random_file):
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='Program for posting image in telegram chanal')
     parser.add_argument ('chat_id', help='Look like "@testchanal0"')
     parser.add_argument ('-f', '--file', default=f'./image/{random_file}', help='Specify the path to the file. Default publication random file from "./image"')
     return parser
