@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 import argparse
 from extension import get_extension
-from download_image import download_image
+from downloader import download_image
 
 
 def get_nasa_images(nasa_key, count_images):

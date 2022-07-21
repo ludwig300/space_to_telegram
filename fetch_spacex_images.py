@@ -2,7 +2,7 @@ import requests
 import argparse
 from dotenv import load_dotenv
 from pathlib import Path
-from download_image import download_image
+from downloader import download_image
 from extension import get_extension
 
 
@@ -12,7 +12,7 @@ def fetch_spacex_last_launch(id):
     links_pics = response.json()['links']['flickr']['original']
     for links_number, url in enumerate(links_pics):
         path = f'image/spacex{links_number}{get_extension(url)}'
-        download_image(url, path) 
+        download_image(url, path)
 
 
 def createParser ():
