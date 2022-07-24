@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 
 def public_image(chat_id, path):
-    token = os.environ['TOKEN']
+    token = os.environ['TG_TOKEN']
     bot = telegram.Bot(token)
     bot.send_document(chat_id=chat_id, document=open(path, 'rb'))
 

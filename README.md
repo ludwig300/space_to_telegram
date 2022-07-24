@@ -10,7 +10,7 @@
 
 - [Create new bot in Telegram](https://t.me/BotFather). Use `/newbot`
 
-  `TOKEN` — Type of token. Look like this `5302287822:AAXiCHSBn0xrUOyqee-TeiJ3SQoBd7RkeL8`
+  `TG_TOKEN` — Type of token. Look like this `5302287822:AAXiCHSBn0xrUOyqee-TeiJ3SQoBd7RkeL8`
 
 - Add bot to channel with admin roots.
 
@@ -18,7 +18,7 @@
 * Create `.env` file in project directory and write:
 ```
 NASA_API = Your API Key
-TOKEN = Your token
+TG_TOKEN = Your token
 ```		
 ### Requirements
 * python-dotenv==0.20.0
