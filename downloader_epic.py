@@ -21,6 +21,7 @@ def get_epic_image(nasa_api_key, count_images):
         image_name = response_json[number_epic]['image']
         url_template = f'https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/{image_name}.png'
         formatted_response = requests.get(url_template, params=payload)
+        formatted_response.raise_for_status()
         path = os.path.join('image', f'{image_name}.png')
         download_image(formatted_response.url, path)
 
