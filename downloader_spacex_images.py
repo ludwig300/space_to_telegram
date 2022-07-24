@@ -1,5 +1,6 @@
 import requests
 import argparse
+import os
 from dotenv import load_dotenv
 from pathlib import Path
 from downloader import download_image
@@ -12,7 +13,7 @@ def fetch_spacex_last_launch(id):
     response.raise_for_status()
     links_pics = response.json()['links']['flickr']['original']
     for links_number, url in enumerate(links_pics):
-        path = f'image/spacex{links_number}{get_extension(url)}'
+        path = os.path.join('image', f'spacex{links_number}{get_extension(url)}')
         download_image(url, path)
 
 
