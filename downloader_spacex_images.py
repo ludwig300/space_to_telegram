@@ -1,7 +1,6 @@
 import requests
 import argparse
 import os
-from dotenv import load_dotenv
 from pathlib import Path
 from downloader import download_image
 from extension import get_extension
@@ -24,7 +23,6 @@ def createParser ():
 
 
 def main():
-    load_dotenv()
     parser = createParser()
     namespace = parser.parse_args()
     Path("image").mkdir(parents=True, exist_ok=True)
