@@ -8,7 +8,8 @@ from dotenv import load_dotenv
 def public_image(chat_id, path):
     token = os.environ['TG_TOKEN']
     bot = telegram.Bot(token)
-    bot.send_document(chat_id=chat_id, document=open(path, 'rb'))
+    with open(path, 'rb') as file:
+        bot.send_document(chat_id=chat_id, document=file)
 
 
 def createParser (random_file):
