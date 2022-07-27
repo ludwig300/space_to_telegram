@@ -18,9 +18,9 @@ def get_nasa_images(nasa_key, count_images):
     response.raise_for_status()
     for apod_number, apod in enumerate(response.json()):
         if apod['media_type'] in 'image':
-            urlstring = apod['url']
-            path = os.path.join('image', f'nasa_apod_{apod_number}{get_extension(urlstring)}')
-            download_image(urlstring, path)
+            url = apod['url']
+            path = os.path.join('image', f'nasa_apod_{apod_number}{get_extension(url)}')
+            download_image(url, path)
 
 
 def createParser ():
